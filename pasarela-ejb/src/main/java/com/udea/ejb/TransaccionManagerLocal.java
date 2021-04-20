@@ -5,6 +5,8 @@
  */
 package com.udea.ejb;
 
+import com.udea.persistence.Transaccion;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +15,9 @@ import javax.ejb.Local;
  */
 @Local
 public interface TransaccionManagerLocal {
+
+    List<Transaccion> getAllTransacciones();
+
+    
     
 }

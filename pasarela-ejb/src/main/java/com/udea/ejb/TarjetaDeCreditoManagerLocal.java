@@ -5,6 +5,8 @@
  */
 package com.udea.ejb;
 
+import com.udea.persistence.TarjetaDeCredito;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +15,11 @@ import javax.ejb.Local;
  */
 @Local
 public interface TarjetaDeCreditoManagerLocal {
+    
+    List<TarjetaDeCredito> getAllTarjetaCredito();
+
+    void InsertTarjetaCredito(TarjetaDeCredito tarjetaCredito);
+
+    
     
 }
