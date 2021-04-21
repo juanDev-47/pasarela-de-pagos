@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -32,7 +33,8 @@ public class TransaccionManager implements TransaccionManagerLocal {
 
     @Override
     public List<Transaccion> getAllTransacciones() {
-        return null;
+        Query query = em.createNamedQuery("Transaccion.findAll");
+        return query.getResultList();
     }
 
     

@@ -42,7 +42,7 @@ public class TarjetaDeCreditoManager implements TarjetaDeCreditoManagerLocal {
         em.persist(t);
         em.getTransaction().commit();
         em.close();
-        
+        // organizar apenas sepa como
     }
 
    
