@@ -38,10 +38,7 @@ public class TarjetaDeCreditoManager implements TarjetaDeCreditoManagerLocal {
     @Override
     public void InsertTarjetaCredito(TarjetaDeCredito tarjetaCredito) {
         TarjetaDeCredito t = tarjetaCredito;
-        em.getTransaction().begin();
         em.persist(t);
-        em.getTransaction().commit();
-        em.close();
         // organizar apenas sepa como
     }
 
