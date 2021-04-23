@@ -42,10 +42,11 @@ public class TarjetaDeCreditoManager implements TarjetaDeCreditoManagerLocal {
         // organizar apenas sepa como
     }
     
-    public TarjetaDeCredito update(TarjetaDeCredito tarjeta) {
-        return em.merge(tarjeta);
-        
-    }
+   
+    
+    
+    
+    
 
    
     

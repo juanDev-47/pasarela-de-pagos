@@ -100,6 +100,8 @@ public class Transaccion implements Serializable {
     public void setNumeroTarjeta(TarjetaDeCredito numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
+    
+    
 
     @Override
     public int hashCode() {

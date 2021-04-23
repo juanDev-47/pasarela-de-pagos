@@ -14,16 +14,27 @@
             <from-outcome>DETAILS</from-outcome>
             <to-view-id>/TarjetaDetail.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>BACK</from-outcome>
+            <to-view-id>/CrearTransaccion.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/TarjetaDetail.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>LIST</from-outcome>
+            <from-outcome>BACK</from-outcome>
+            <to-view-id>/CrearTransaccion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/CrearTransaccion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>LISTADO</from-outcome>
             <to-view-id>/tarjetaList.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>SAVED</from-outcome>
-            <to-view-id>/tarjetaList.xhtml</to-view-id>
+            <to-view-id>/TarjetaDetail.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

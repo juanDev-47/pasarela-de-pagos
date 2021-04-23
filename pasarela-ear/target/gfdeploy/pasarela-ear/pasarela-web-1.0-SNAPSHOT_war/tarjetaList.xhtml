@@ -17,7 +17,20 @@
 
             <h:form>
                 <h1><h:outputText value="List"/></h1>
-                <p:dataTable value="#{tarjetaDeCreditoMBean.transacciones}" var="item">
+                <p:dataTable value="#{tarjetaDeCreditoMBean.transacciones}"
+                             var="item"
+                             paginator="true"
+                             rows="10"
+                             scrollable="true"
+                             scrollWidth="100%"
+                             scrollHeight="300"
+                             rendered="true"
+                             resizableColumns="true"
+                             sortMode="multiple"
+                             emptyMessage="No hay datos"
+                             widgetVar="transaccionesTable"
+                             
+                             >
                     
                     <p:column headerText="TransaccionId"
                               sortBy="#{item.id}"
@@ -53,9 +66,10 @@
                         <f:facet name="header">
                             <h:outputText value="NumeroTarjeta"/>
                         </f:facet>
-                        <h:outputText value="#{item.numeroTarjeta}"/>
+                        <h:outputText value="#{item.numeroTarjeta.numeroTarjeta}"/>  
                     </p:column>
                 </p:dataTable>
+                <h:commandButton id="Pagos" value="Nuevo Pago" style="margin-top: 10px" action="#{tarjetaDeCreditoMBean.back}"/>
             </h:form>
         </f:view>
         

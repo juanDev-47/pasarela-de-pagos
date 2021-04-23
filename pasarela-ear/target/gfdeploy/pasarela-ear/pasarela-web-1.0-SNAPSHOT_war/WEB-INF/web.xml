@@ -19,6 +19,14 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/tarjetaList.xhtml</welcome-file>
+        <welcome-file>faces/CrearTransaccion.xhtml</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+        <param-value>6LfAYuAZAAAAAJY5Y9b7xvw8sNs0bLtyXLpDR7BL</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+        <param-value>6LfAYuAZAAAAAFK-KeBQ4vn2mAeUFb8rbZVHP2zq</param-value>
+    </context-param>
 </web-app>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Transaccion</title>
+    </h:head>
+    <h:body style="justify-content: center; align-items: center">
+        
+        <f:view >
+
+
+            <h:form style="padding-left: 33%">
+                <h1 style="padding-left: 60px"><h:outputText value="Generar pago"/></h1>
+                
+                
+                <p:panelGrid columns="2">
+                    
+                    
+                    <p:outputLabel value="Verifica que eres una persona:" for="captcha" />     
+                    <p:captcha id="captcha" class="captcha" required="true" requiredMessage="El Captcha es obligatorio"></p:captcha><br/>
+                    
+                    <h:commandButton id="guardar" value="Listado de Transacciones" class="btn btn-dark" action="#{tarjetaDeCreditoMBean.list()}"  />
+                    
+                </p:panelGrid>
+            </h:form>
+        </f:view>
+        
+        
+
+
+       
+
+
+        
+    </h:body>
+</html>
+

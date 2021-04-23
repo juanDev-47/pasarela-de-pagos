@@ -5,12 +5,14 @@
  */
 package com.udea.controller;
 
+import com.udea.ejb.TarjetaDeCreditoManager;
 import com.udea.ejb.TransaccionManagerLocal;
 import com.udea.persistence.TarjetaDeCredito;
 import com.udea.persistence.Transaccion;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.model.SelectItem;
 
 /**
  *
@@ -84,13 +86,24 @@ public class TarjetaDeCreditoMBean implements Serializable {
     }
     
     public String list(){
+        return "LISTADO";  //poner LIST
+    }
+    
+    public String detalleCompra(){
         return "DETAILS";  //poner LIST
     }
+    
+    public String back(){
+        return "BACK";
+    }
+    
     
     public void refresh(){
         tarjetas = tarjetaDeCreditoManager.getAllTarjetaCredito();
         transacciones = transaccionManager.getAllTransacciones();
     }
+    
+    
     
     
 }

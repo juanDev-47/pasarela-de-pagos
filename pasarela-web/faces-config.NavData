@@ -2,9 +2,9 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="tarjetaList.xhtml" x="462" y="311" zoom="true"/>
+        <Node id="tarjetaList.xhtml" x="547" y="123" zoom="true"/>
         <Node id="TarjetaDetail.xhtml" x="185" y="96" zoom="true"/>
-        <Node id="index.html" x="172" y="259" zoom="true"/>
+        <Node id="CrearTransaccion.html" x="343" y="500" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

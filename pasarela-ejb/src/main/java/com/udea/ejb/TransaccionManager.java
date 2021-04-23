@@ -36,6 +36,10 @@ public class TransaccionManager implements TransaccionManagerLocal {
         Query query = em.createNamedQuery("Transaccion.findAll");
         return query.getResultList();
     }
+    
+
+    
+    
 
     
 }

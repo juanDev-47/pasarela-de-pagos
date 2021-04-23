@@ -38,6 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "TarjetaDeCredito.findByCvv", query = "SELECT t FROM TarjetaDeCredito t WHERE t.cvv = :cvv")
     , @NamedQuery(name = "TarjetaDeCredito.findByFechaVen", query = "SELECT t FROM TarjetaDeCredito t WHERE t.fechaVen = :fechaVen")
     , @NamedQuery(name = "TarjetaDeCredito.findByTipoTarjeta", query = "SELECT t FROM TarjetaDeCredito t WHERE t.tipoTarjeta = :tipoTarjeta")})
+    
 public class TarjetaDeCredito implements Serializable {
 
     private static final long serialVersionUID = 1L;
