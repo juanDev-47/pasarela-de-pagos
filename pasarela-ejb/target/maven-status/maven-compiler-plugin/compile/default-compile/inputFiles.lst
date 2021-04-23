@@ -1,6 +1,7 @@
-C:\Users\JUAN\Desktop\pasarela\pasarela-ejb\src\main\java\com\udea\ejb\TarjetaDeCreditoManager.java
-C:\Users\JUAN\Desktop\pasarela\pasarela-ejb\src\main\java\com\udea\persistence\Transaccion.java
-C:\Users\JUAN\Desktop\pasarela\pasarela-ejb\src\main\java\com\udea\ejb\TransaccionManagerLocal.java
-C:\Users\JUAN\Desktop\pasarela\pasarela-ejb\src\main\java\com\udea\ejb\TransaccionManager.java
-C:\Users\JUAN\Desktop\pasarela\pasarela-ejb\src\main\java\com\udea\ejb\TarjetaDeCreditoManagerLocal.java
-C:\Users\JUAN\Desktop\pasarela\pasarela-ejb\src\main\java\com\udea\persistence\TarjetaDeCredito.java
+C:\Users\JUAN\Desktop\pasarela-de-pagos\pasarela-ejb\src\main\java\com\udea\persistence\TarjetaDeCredito.java
+C:\Users\JUAN\Desktop\pasarela-de-pagos\pasarela-ejb\src\main\java\com\udea\ejb\TransaccionManagerLocal.java
+C:\Users\JUAN\Desktop\pasarela-de-pagos\pasarela-ejb\src\main\java\com\udea\NewSessionBean.java
+C:\Users\JUAN\Desktop\pasarela-de-pagos\pasarela-ejb\src\main\java\com\udea\ejb\TransaccionManager.java
+C:\Users\JUAN\Desktop\pasarela-de-pagos\pasarela-ejb\src\main\java\com\udea\ejb\TarjetaDeCreditoManager.java
+C:\Users\JUAN\Desktop\pasarela-de-pagos\pasarela-ejb\src\main\java\com\udea\ejb\TarjetaDeCreditoManagerLocal.java
+C:\Users\JUAN\Desktop\pasarela-de-pagos\pasarela-ejb\src\main\java\com\udea\persistence\Transaccion.java

@@ -7,6 +7,7 @@ package com.udea.controller;
 
 import com.udea.ejb.TransaccionManagerLocal;
 import com.udea.persistence.TarjetaDeCredito;
+import com.udea.persistence.Transaccion;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
@@ -18,14 +19,16 @@ import javax.ejb.EJB;
 public class TarjetaDeCreditoMBean implements Serializable {
 
     @EJB
-    private TransaccionManagerLocal transaccionManager;
+    private com.udea.ejb.TransaccionManagerLocal transaccionManager;
 
     @EJB
     private com.udea.ejb.TarjetaDeCreditoManagerLocal tarjetaDeCreditoManager;
 
     // propiedades del modelo
     private TarjetaDeCredito tarjeta;  //para el insert 
-    private List<TarjetaDeCredito> tarjetas; // para mostrar la tabla 
+    private List<TarjetaDeCredito> tarjetas; // para mostrar la tabla
+    private Transaccion transaccion;
+    private List<Transaccion> transacciones;
     
     /**
      * Creates a new instance of TarjetaDeCreditoMBean
@@ -41,13 +44,32 @@ public class TarjetaDeCreditoMBean implements Serializable {
             return tarjetas;        
     }
     
+    public List<Transaccion> getTransacciones(){
+        if ((transacciones == null)|| (transacciones.isEmpty())) 
+            refresh();
+            
+            return transacciones;        
+    }
+    
+    
+    
     //retorno el detalle de cada tarjeta en el formulario
     public TarjetaDeCredito getDetails(){
         return tarjeta;
     }
     
+    public Transaccion getDetailsTransaccion(){
+        return transaccion;
+    }
+    
     //Action Handler
-    public String showDetails(TarjetaDeCredito tarjeta){
+    public String showDetails(Transaccion transaccion){
+        this.transaccion = transaccion;
+        return "DETAILS";        
+    }
+    
+    public String showDetails2(Transaccion transaccion,TarjetaDeCredito tarjeta){
+        this.transaccion = transaccion;
         this.tarjeta = tarjeta;
         return "DETAILS";        
     }
@@ -62,11 +84,12 @@ public class TarjetaDeCreditoMBean implements Serializable {
     }
     
     public String list(){
-        return "LIST";
+        return "DETAILS";  //poner LIST
     }
     
     public void refresh(){
         tarjetas = tarjetaDeCreditoManager.getAllTarjetaCredito();
+        transacciones = transaccionManager.getAllTransacciones();
     }
     
     

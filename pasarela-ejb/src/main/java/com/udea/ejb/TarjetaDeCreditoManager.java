@@ -41,6 +41,11 @@ public class TarjetaDeCreditoManager implements TarjetaDeCreditoManagerLocal {
         em.persist(t);
         // organizar apenas sepa como
     }
+    
+    public TarjetaDeCredito update(TarjetaDeCredito tarjeta) {
+        return em.merge(tarjeta);
+        
+    }
 
    
     

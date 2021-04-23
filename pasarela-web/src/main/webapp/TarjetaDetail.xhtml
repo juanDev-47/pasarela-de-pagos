@@ -1,12 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         Hello from Facelets
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Id:" for="id" />
+                    <p:inputText id="id" value="#{tarjetaDeCreditoMBean.detailsTransaccion.id}" title="Id" required="true" requiredMessage="The Id field is required."/>
+                    <p:outputLabel value="ValorTransaccion:" for="valorTransaccion" />
+                    <p:inputText id="valorTransaccion" value="#{tarjetaDeCreditoMBean.detailsTransaccion.valorTransaccion}" title="ValorTransaccion" required="true" requiredMessage="The ValorTransaccion field is required."/>
+                    <p:outputLabel value="Fecha:" for="fecha" />
+                    <p:inputText id="fecha" value="#{tarjetaDeCreditoMBean.detailsTransaccion.fecha}" title="Fecha" required="true" requiredMessage="The Fecha field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </p:inputText>
+                    <p:outputLabel value="NumeroTarjeta:" for="numeroTarjeta" />
+                    <p:selectOneMenu id="numeroTarjeta" value="#{tarjetaDeCreditoMBean.detailsTransaccion.numeroTarjeta}" required="true" requiredMessage="The NumeroTarjeta field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel value="NumeroTarjeta:" for="numeroTarjeta" />
+                    <p:inputText id="numero" value="#{tarjetaDeCreditoMBean.details.numeroTarjeta}" title="NumeroTarjeta" required="true" requiredMessage="The Id field is required."/>
+                     <p:outputLabel value="NombreTitular:" for="nombreTitular" />
+                    <p:inputTextarea rows="4" cols="30" id="nombreTitular" value="#{tarjetaDeCreditoMBean.details.nombreTitular}" title="NombreTitular" required="true" requiredMessage="The NombreTitular field is required."/>
+                    <p:outputLabel value="Cvv:" for="cvv" />
+                    <p:inputText id="cvv" value="#{tarjetaDeCreditoMBean.details.cvv}" title="Cvv" required="true" requiredMessage="The Cvv field is required."/>
+                    <p:outputLabel value="FechaVen:" for="fechaVen" />
+                    <p:inputText id="fechaVen" value="#{tarjetaDeCreditoMBean.details.fechaVen}" title="FechaVen" required="true" requiredMessage="The FechaVen field is required.">
+                        <f:convertDateTime pattern="MM/yyyy" />
+                    </p:inputText>
+                    <p:outputLabel value="TipoTarjeta:" for="tipoTarjeta" />
+                    <p:inputText id="tipoTarjeta" value="#{tarjetaDeCreditoMBean.details.tipoTarjeta}" title="TipoTarjeta" required="true" requiredMessage="The TipoTarjeta field is required."/>
+                    
+                    
+                </p:panelGrid>
+            </h:form>
+        </f:view>
+        
+        
+
+
+       
+
+
+        
     </h:body>
 </html>
 
