@@ -19,23 +19,27 @@
                 <p:panelGrid columns="2">
                     
                     <p:outputLabel value="NombreTitular:" for="nombreTitular" />
-                    <p:inputText  id="nombreTitular" value="#{tarjetaDeCreditoMBean.tarjeta.nombreTitular}" title="NombreTitular" required="false" requiredMessage="The NombreTitular field is required."/>
+                    <p:inputText  id="nombreTitular" value="#{tarjetaDeCreditoMBean.tarjeta.nombreTitular}"  title="NombreTitular" required="true" requiredMessage="The NombreTitular field is required."/>
                     
                     <p:outputLabel value="NumeroTarjeta:"  for="numeroTarjeta" />                    
-                    <p:inputText id="numeroTarjeta" value="#{tarjetaDeCreditoMBean.tarjeta.numeroTarjeta}"  maxlength="16"  title="NumeroTarjeta" required="false" requiredMessage="The TipoTarjeta field is required."/>
+                    <p:inputText id="numeroTarjeta" value="#{tarjetaDeCreditoMBean.tarjeta.numeroTarjeta}" maxlength="16"  size="16"  title="NumeroTarjeta" required="true" requiredMessage="The TipoTarjeta field is required."/>
                                         
                     
                     <p:outputLabel value="Cvv:"  for="cvv" />
-                    <p:inputNumber id="cvv" value="#{tarjetaDeCreditoMBean.tarjeta.cvv}"  maxValue="999" size="3" title="Cvv" required="true" decimalPlaces="0" requiredMessage="The Cvv field is required."/>
+                    <p:inputNumber id="cvv" value="#{tarjetaDeCreditoMBean.tarjeta.cvv}"  maxValue="999" size="3" title="Cvv" required="true" decimalPlaces="0" requiredMessage="The Cvv field is required.">
+                            <f:validateLongRange for="valor" minimum="100" />
+                    </p:inputNumber>
                     
                     <p:outputLabel value="FechaVen:" for="fechaVen" />
-                    <p:calendar id="fechaVen" value="#{tarjetaDeCreditoMBean.tarjeta.fechaVen}" pattern="dd/MM/yyyy" navigator="true" title="FechaVen" required="false"  requiredMessage="The FechaVen field is required.">
+                    <p:calendar id="fechaVen" value="#{tarjetaDeCreditoMBean.tarjeta.fechaVen}" pattern="MM/yyyy"  navigator="true" title="FechaVen" required="true"  requiredMessage="The FechaVen field is required.">
                         
                     </p:calendar>
                                         
                     
                     <p:outputLabel value="ValorTransaccion:" for="valorTransaccion" />
-                    <p:inputNumber id="valorTransaccion" value="#{tarjetaDeCreditoMBean.transaccion.valorTransaccion}" decimalPlaces="0" maxlength="5" readonly="false"  title="ValorTransaccion" required="false" requiredMessage="The ValorTransaccion field is required."/>                    
+                    <p:inputNumber id="valorTransaccion" value="#{tarjetaDeCreditoMBean.transaccion.valorTransaccion}" decimalPlaces="0" maxValue="10000" maxlength="6" readonly="false"  title="ValorTransaccion" required="true" requiredMessage="The ValorTransaccion field is required.">
+                        <f:validateLongRange for="valor" minimum="500" />
+                    </p:inputNumber>                    
                     
                     
                     <p:outputLabel value="Verifica que eres una persona:" for="captcha" />     

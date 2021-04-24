@@ -118,6 +118,7 @@ public class TarjetaDeCreditoMBean implements Serializable {
     }
     
     public String back(){
+//        tarjeta = null;
         return "BACK";
     }
     
@@ -133,64 +134,38 @@ public class TarjetaDeCreditoMBean implements Serializable {
     public String pagar() {
         
         identificarTipo();
-        tarjetaDeCreditoManager.InsertTarjetaCredito(tarjeta);
-            transaccion.setNumeroTarjeta(tarjeta);
-            Timestamp date = new Timestamp(System.currentTimeMillis());
-            transaccion.setFecha(date);
-            transaccionManager.insertarTransaccion(transaccion);
+        
             
-            
-            
-//        System.out.println(tarjeta.getNombreTitular());
-//        identificarTipo();
-//        
-//        if(!tarjetaDeCreditoManager.comprobarTarjeta(tarjeta)){
+        
+//        if(tarjetaDeCreditoManager.comprobarTarjeta(tarjeta)){
 //            tarjetaDeCreditoManager.InsertTarjetaCredito(tarjeta);
 //        }else {
-////            tarjeta = tarjetaDeCreditoManager.BuscarTarjeta(tarjeta.getNumeroTarjeta());
+//            TarjetaDeCredito tarjeta2 = tarjetaDeCreditoManager.BuscarTarjeta(tarjeta.getNumeroTarjeta());
+//            if (tarjeta2.getCvv() == tarjeta.getCvv()) {
+//                tarjeta = tarjeta2;
+//            }else{
+//                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Nro tarjeta erroneo", ""));
+//                tarjeta = null;
+//                return "CVV";
+//            }
 //        }
-//        
-//        
-//        transaccion.setNumeroTarjeta(tarjeta);
-//        Timestamp date = new Timestamp(System.currentTimeMillis());
-//        transaccion.setFecha(date);
-//        transaccionManager.insertarTransaccion(transaccion);
-//         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "TRANSACCIÓN EXITOSA", ""));
+        
+        tarjetaDeCreditoManager.InsertTarjetaCredito(tarjeta);
+        transaccion.setNumeroTarjeta(tarjeta);
+        Timestamp date = new Timestamp(System.currentTimeMillis());
+        transaccion.setFecha(date);
+        transaccionManager.insertarTransaccion(transaccion);
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "TRANSACCIÓN EXITOSA", ""));
         return "SAVED";
     }
     
-    
-    
-    
+     
     
     public void refresh(){
         tarjetas = tarjetaDeCreditoManager.getAllTarjetaCredito();
         transacciones = transaccionManager.getAllTransacciones();
     }
     
-//    public void crearTransaccion(TarjetaDeCredito tarjeta, int valorTransaccion){
-//        Timestamp date = new Timestamp(System.currentTimeMillis());
-//        Transaccion transaccion = new Transaccion();
-//        transaccion.setFecha(date);
-//        transaccion.setNumeroTarjeta(tarjeta);
-//        transaccion.setValorTransaccion(valorTransaccion);
-//        
-//        transaccionManager.insertarTransaccion(transaccion);
-//    }
-//    
-//    public TarjetaDeCredito crearTarjeta(String nombre, String numeroTarjeta, int cvv, Date fechaVencimiento){
-//        String tipoTarjeta = "DINERS";
-//        TarjetaDeCredito tarjeta = new TarjetaDeCredito();
-//        tarjeta.setNombreTitular(nombre);
-//        tarjeta.setNumeroTarjeta(numeroTarjeta);
-//        tarjeta.setTipoTarjeta(tipoTarjeta);
-//        tarjeta.setCvv(cvv);
-//        tarjeta.setFechaVen(fechaVencimiento);
-//        
-//        tarjetaDeCreditoManager.InsertTarjetaCredito(tarjeta);
-//        
-//        return tarjeta;
-//    }
     
     
 }

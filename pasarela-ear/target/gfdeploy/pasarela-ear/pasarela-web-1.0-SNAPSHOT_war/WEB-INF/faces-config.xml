@@ -36,5 +36,9 @@
             <from-outcome>SAVED</from-outcome>
             <to-view-id>/TarjetaDetail.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>CVV</from-outcome>
+            <to-view-id>/CrearTransaccion.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>
