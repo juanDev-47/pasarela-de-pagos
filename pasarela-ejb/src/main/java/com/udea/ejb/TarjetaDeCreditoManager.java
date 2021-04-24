@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -37,11 +38,53 @@ public class TarjetaDeCreditoManager implements TarjetaDeCreditoManagerLocal {
 
     @Override
     public void InsertTarjetaCredito(TarjetaDeCredito tarjetaCredito) {
-        TarjetaDeCredito t = tarjetaCredito;
-        em.persist(t);
-        // organizar apenas sepa como
+        
+        em.persist(tarjetaCredito);
     }
     
+    @Override
+    public TarjetaDeCredito BuscarTarjeta(String numerotarjeta) {
+        Query query = em.createNamedQuery("Tarjeta.findByNumeroTarjeta");
+        query.setParameter("numeroTarjeta", numerotarjeta);
+
+        try {
+            return (TarjetaDeCredito) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
+    
+    @Override
+    public boolean comprobarTarjeta(TarjetaDeCredito tarjeta) {
+        TarjetaDeCredito tarjetaBD = BuscarTarjeta(tarjeta.getNumeroTarjeta());
+        if(tarjetaBD==null) return false; 
+        return tarjetaBD.equals(tarjeta);
+    }
+
+    @Override
+    public String identificarTipo(String nroTarjeta) {
+
+        int a = Integer.parseInt(nroTarjeta.substring(0, 5));
+        if ((a >= 11111) && (a <= 22222)) {
+            return "AMERCAN EXPRESS";
+        }
+
+        if ((a >= 33334) && (a <= 44444)) {
+            return "DINERS";
+        }
+
+        if ((a >= 55555) && (a <= 66666)) {
+            return "VISA";
+        }
+
+        if ((a >= 77777) && (a <= 88888)) {
+            return "MASTERCARD";
+        }
+
+        return "No valido";
+
+    }
    
     
     

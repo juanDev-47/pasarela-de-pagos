@@ -19,7 +19,12 @@ public interface TarjetaDeCreditoManagerLocal {
     List<TarjetaDeCredito> getAllTarjetaCredito();
 
     void InsertTarjetaCredito(TarjetaDeCredito tarjetaCredito);
+    
+    TarjetaDeCredito BuscarTarjeta(String numerotarjeta);
 
+    boolean comprobarTarjeta(TarjetaDeCredito tarjeta);
+    
+    String identificarTipo(String nroTarjeta);
     
     
 }

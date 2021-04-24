@@ -5,7 +5,9 @@
  */
 package com.udea.ejb;
 
+
 import com.udea.persistence.Transaccion;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +37,12 @@ public class TransaccionManager implements TransaccionManagerLocal {
     public List<Transaccion> getAllTransacciones() {
         Query query = em.createNamedQuery("Transaccion.findAll");
         return query.getResultList();
+    }
+    
+    @Override
+    public void insertarTransaccion(Transaccion transaccion) {
+                
+        em.persist(transaccion);        
     }
     
 

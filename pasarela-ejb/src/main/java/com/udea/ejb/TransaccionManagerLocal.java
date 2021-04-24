@@ -18,6 +18,7 @@ public interface TransaccionManagerLocal {
 
     List<Transaccion> getAllTransacciones();
 
-    
-    
+    void insertarTransaccion(Transaccion transaccion);
 }
+
+
