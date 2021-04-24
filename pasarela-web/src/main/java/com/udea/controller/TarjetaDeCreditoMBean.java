@@ -31,9 +31,9 @@ public class TarjetaDeCreditoMBean implements Serializable {
     private com.udea.ejb.TarjetaDeCreditoManagerLocal tarjetaDeCreditoManager;
 
     // propiedades del modelo
-    private TarjetaDeCredito tarjeta;  //para el insert 
+    private TarjetaDeCredito tarjeta = new TarjetaDeCredito();  //para el insert 
     private List<TarjetaDeCredito> tarjetas; // para mostrar la tabla
-    private Transaccion transaccion;
+    private Transaccion transaccion = new Transaccion();
     private List<Transaccion> transacciones;
     
     
@@ -131,21 +131,32 @@ public class TarjetaDeCreditoMBean implements Serializable {
     }
     
     public String pagar() {
+        
         identificarTipo();
-        
-        if(!tarjetaDeCreditoManager.comprobarTarjeta(tarjeta)){
-            tarjetaDeCreditoManager.InsertTarjetaCredito(tarjeta);
-        }else {
-//            tarjeta = tarjetaDeCreditoManager.BuscarTarjeta(tarjeta.getNumeroTarjeta());
-        }
-        
-        
-        transaccion.setNumeroTarjeta(tarjeta);
-        Timestamp date = new Timestamp(System.currentTimeMillis());
-        transaccion.setFecha(date);
-        transaccionManager.insertarTransaccion(transaccion);
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "TRANSACCIÓN EXITOSA", ""));
-        return "INFO";
+        tarjetaDeCreditoManager.InsertTarjetaCredito(tarjeta);
+            transaccion.setNumeroTarjeta(tarjeta);
+            Timestamp date = new Timestamp(System.currentTimeMillis());
+            transaccion.setFecha(date);
+            transaccionManager.insertarTransaccion(transaccion);
+            
+            
+            
+//        System.out.println(tarjeta.getNombreTitular());
+//        identificarTipo();
+//        
+//        if(!tarjetaDeCreditoManager.comprobarTarjeta(tarjeta)){
+//            tarjetaDeCreditoManager.InsertTarjetaCredito(tarjeta);
+//        }else {
+////            tarjeta = tarjetaDeCreditoManager.BuscarTarjeta(tarjeta.getNumeroTarjeta());
+//        }
+//        
+//        
+//        transaccion.setNumeroTarjeta(tarjeta);
+//        Timestamp date = new Timestamp(System.currentTimeMillis());
+//        transaccion.setFecha(date);
+//        transaccionManager.insertarTransaccion(transaccion);
+//         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "TRANSACCIÓN EXITOSA", ""));
+        return "SAVED";
     }
     
     

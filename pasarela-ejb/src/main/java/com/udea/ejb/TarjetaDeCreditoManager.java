@@ -67,7 +67,7 @@ public class TarjetaDeCreditoManager implements TarjetaDeCreditoManagerLocal {
 
         int a = Integer.parseInt(nroTarjeta.substring(0, 5));
         if ((a >= 11111) && (a <= 22222)) {
-            return "AMERCAN EXPRESS";
+            return "AMERICAN EXPRESS";
         }
 
         if ((a >= 33334) && (a <= 44444)) {

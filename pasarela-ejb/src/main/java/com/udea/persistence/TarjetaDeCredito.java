@@ -87,7 +87,9 @@ public class TarjetaDeCredito implements Serializable {
     }
 
     public String getNumeroTarjeta() {
+        System.out.println(numeroTarjeta);
         return numeroTarjeta;
+        
     }
 
     public void setNumeroTarjeta(String numeroTarjeta) {

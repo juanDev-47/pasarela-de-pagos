@@ -22,29 +22,27 @@
                     <p:inputText  id="nombreTitular" value="#{tarjetaDeCreditoMBean.tarjeta.nombreTitular}" title="NombreTitular" required="false" requiredMessage="The NombreTitular field is required."/>
                     
                     <p:outputLabel value="NumeroTarjeta:"  for="numeroTarjeta" />                    
-                    <p:inputNumber id="numeroTarjeta" value="#{tarjetaDeCreditoMBean.tarjeta.numeroTarjeta}" thousandSeparator="" size="16" decimalPlaces="0" title="NumeroTarjeta" required="false" requiredMessage="The TipoTarjeta field is required."/>
-                    
-                    <!--<p:outputLabel value="TipoTarjeta:" for="tipoTarjeta" />-->
-                    <!--<p:inputText id="tipoTarjeta"  readonly="true"  title="TipoTarjeta" required="false" requiredMessage="The TipoTarjeta field is required."/>-->
+                    <p:inputText id="numeroTarjeta" value="#{tarjetaDeCreditoMBean.tarjeta.numeroTarjeta}"  maxlength="16"  title="NumeroTarjeta" required="false" requiredMessage="The TipoTarjeta field is required."/>
+                                        
                     
                     <p:outputLabel value="Cvv:"  for="cvv" />
                     <p:inputNumber id="cvv" value="#{tarjetaDeCreditoMBean.tarjeta.cvv}"  maxValue="999" size="3" title="Cvv" required="true" decimalPlaces="0" requiredMessage="The Cvv field is required."/>
                     
                     <p:outputLabel value="FechaVen:" for="fechaVen" />
-                    <p:calendar id="fechaVen" value="#{tarjetaDeCreditoMBean.tarjeta.fechaVen}" pattern="MM/yyyy" navigator="true" title="FechaVen" required="false"  requiredMessage="The FechaVen field is required.">
+                    <p:calendar id="fechaVen" value="#{tarjetaDeCreditoMBean.tarjeta.fechaVen}" pattern="dd/MM/yyyy" navigator="true" title="FechaVen" required="false"  requiredMessage="The FechaVen field is required.">
                         
                     </p:calendar>
                                         
                     
                     <p:outputLabel value="ValorTransaccion:" for="valorTransaccion" />
-                    <p:inputNumber id="valorTransaccion" value="#{tarjetaDeCreditoMBean.transaccion.valorTransaccion}" decimalPlaces="0" maxlength="5" readonly="true"  title="ValorTransaccion" required="false" requiredMessage="The ValorTransaccion field is required."/>                    
+                    <p:inputNumber id="valorTransaccion" value="#{tarjetaDeCreditoMBean.transaccion.valorTransaccion}" decimalPlaces="0" maxlength="5" readonly="false"  title="ValorTransaccion" required="false" requiredMessage="The ValorTransaccion field is required."/>                    
                     
                     
                     <p:outputLabel value="Verifica que eres una persona:" for="captcha" />     
                     <p:captcha id="captcha" class="captcha" required="true" requiredMessage="El Captcha es obligatorio"></p:captcha><br/>
                     
-                    <h:commandButton id="guardar" value="Listado de Transacciones" class="btn btn-dark" action="#{tarjetaDeCreditoMBean.pagar()}"  />
-                    <h:commandButton id="guardar" value="Listado de Transacciones" class="btn btn-dark" action="#{tarjetaDeCreditoMBean.list()}"  />
+                    <h:commandButton id="guardar" type="submit" value="Pagar" class="btn btn-dark" action="#{tarjetaDeCreditoMBean.pagar()}"  />
+                    <h:commandButton id="listado" value="Listado de Transacciones" class="btn btn-dark" action="#{tarjetaDeCreditoMBean.list()}"  />
                     
                 </p:panelGrid>
             </h:form>
